@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(255,200,103,0.6);
+}
+h1{
+    text-align: center;
+}
+
+
+#submit{
+    position:absolute;
+    left: 640px;
+    padding-left:15px;
+    padding-right:15px;
+    height:420px;
+    font-size:30px;
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+}
+select{
+    width: 604px;
+    height:40px;
+    border-style: none;
+    position:relative;
+    text-align: center;
+    font-size:30px;
+}
+#code1{
+    left: 25px;
+}
+#code2{
+    left: 94px;
+}
+
+textarea{
+    vertical-align: text-top;
+    height:400px;
+    width:600px;
+    border-style: none;
+    position:relative;
+    font-size:20px;
+}
+#texto{
+    left: 25px;
+
+}
+#resultado{
+    left: 94px;
+}
+
+
