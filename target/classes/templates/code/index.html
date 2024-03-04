@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Code/Decode br.example.code_decode_page.Texto</title>
+    <link rel = "stylesheet" href= "../static/css/index.css" th:href="@{/css/index.css}">
+</head>
+<body>
+    <h1>Codificador de Texto</h1>
+
+    <div layout:fragment="conteudo" action="/code">
+        <form method="post">
+            <label for="code1"></label>
+            <select name="code" id="code1" th:value="${texto?.codigoTextoAConverter}" >
+                <option value="morse">Morse</option>
+                <option value="alfaNumeric">Alfanumérico</option>
+            </select>
+
+
+
+            <label for="code2"></label>
+            <select name="code" id="code2" th:value="${texto?.codigoTextoConvertido}" >
+                <option value="morse">Morse</option>
+                <option value="alfaNumeric">Alfanumérico</option>
+            </select>
+            <input type="submit" id="submit" value="CODIFICAR" >
+
+            <label for="texto"></label>
+            <textarea name="textoAConverter" id="texto" wrap="hard" cols="30" rows="5" th:value="${texto?.textoAConverter}"></textarea>
+        </form>
+        <label for="resultado"></label>
+        <textarea id="resultado" wrap="hard" cols="30" rows="5" readonly
+                  >
+            arroz vermelho</textarea>
+    </div>
+
+</body>
+</html>

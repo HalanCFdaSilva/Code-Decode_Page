@@ -6,8 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com.example.code-decede-page" />
+        <module name="Code-Decode_Page" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.example.code-decede-page" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Code-Decode_Page" options="-parameters" />
+      <module name="com.example.code-decede-page" options="-parameters" />
+    </option>
   </component>
 </project>
