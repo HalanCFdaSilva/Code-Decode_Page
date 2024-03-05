@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Code/Decode br.example.code_decode_page.Texto</title>
+    <title>Code/Decode br.example.code_decode_page.domain.Texto</title>
     <link rel = "stylesheet" href= "../static/css/index.css" th:href="@{/css/index.css}">
 </head>
 <body>
@@ -22,7 +22,7 @@
 
 
             <label for="code2"></label>
-            <select name="code" id="code2" th:value="${texto?.codigoTextoConvertido}" >
+            <select name="code2" id="code2" th:value="${texto?.codigoTextoConvertido}" >
                 <option value="morse">Morse</option>
                 <option value="alfaNumeric">Alfanumérico</option>
             </select>
@@ -32,8 +32,8 @@
             <textarea name="textoAConverter" id="texto" wrap="hard" cols="30" rows="5" th:value="${texto?.textoAConverter}"></textarea>
         </form>
         <label for="resultado"></label>
-        <textarea id="resultado" wrap="hard" cols="30" rows="5" readonly
-                  >
+        <textarea name="convertido" id="resultado" wrap="hard" cols="30" rows="5" readonly
+                  th:text="${texto.textoConvertido}">
             arroz vermelho</textarea>
     </div>
 

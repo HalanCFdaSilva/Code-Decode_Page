@@ -1,4 +1,6 @@
-package br.example.code_decode_page;
+package br.example.code_decode_page.domain;
+
+import br.example.code_decode_page.DadosCodificaTexto;
 
 public class Texto {
 
@@ -9,6 +11,19 @@ public class Texto {
 
     public Texto(DadosCodificaTexto dados) {
         this.setTextoAConverter(dados.textoAConverter());
+
+        CodificacaoTexto codificacaoTextoAConverter = CodificacaoTexto.acharCodificacao(dados.code());
+        this.setCodigoTextoAConverter(codificacaoTextoAConverter);
+
+        CodificacaoTexto codificacaoTextoConvertido = CodificacaoTexto.acharCodificacao(dados.code2());
+        this.setCodigoTextoAConverter(codificacaoTextoConvertido);
+
+        this.setTextoConvertido(dados.textoAConverter());
+    }
+
+    public Texto() {
+        this.setTextoConvertido(" ");
+
     }
 
 

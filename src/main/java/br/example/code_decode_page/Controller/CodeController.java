@@ -1,8 +1,10 @@
 package br.example.code_decode_page.Controller;
 
 import br.example.code_decode_page.DadosCodificaTexto;
-import br.example.code_decode_page.Texto;
+import br.example.code_decode_page.codificador.CodificadorMorse;
+import br.example.code_decode_page.domain.Texto;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +16,17 @@ public class CodeController {
     Texto texto;
 
     @GetMapping
-    public String textoCodificado(DadosCodificaTexto dados) {
+    public String textoCodificado(Model model) {
 
 
         if (texto != null){
-            System.out.println(texto.getTextoAConverter());
+            CodificadorMorse morse = new CodificadorMorse();
+            String textoConvertido = morse.codificar(texto.getTextoAConverter());
+            texto.setTextoConvertido(textoConvertido);
+            model.addAttribute("texto",texto);
         }else{
-            System.out.println("get");
+            this.texto = new Texto();
+            model.addAttribute("texto",texto);
         }
 
         return "code/index";
@@ -29,8 +35,6 @@ public class CodeController {
     @PostMapping
     public String cadastraFilme(DadosCodificaTexto dados) {
        this.texto = new Texto(dados);
-
-        System.out.println(texto + ": texto criado");
 
         return "redirect:/code";
     }
