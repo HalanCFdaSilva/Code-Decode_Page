@@ -16,9 +16,9 @@ public class Texto {
         this.setCodigoTextoAConverter(codificacaoTextoAConverter);
 
         CodificacaoTexto codificacaoTextoConvertido = CodificacaoTexto.acharCodificacao(dados.code2());
-        this.setCodigoTextoAConverter(codificacaoTextoConvertido);
+        this.setCodigoTextoConvertido(codificacaoTextoConvertido);
 
-        this.setTextoConvertido(dados.textoAConverter());
+        this.setTextoConvertido(" ");
     }
 
     public Texto() {

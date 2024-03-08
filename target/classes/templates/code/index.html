@@ -9,33 +9,46 @@
     <link rel = "stylesheet" href= "../static/css/index.css" th:href="@{/css/index.css}">
 </head>
 <body>
-    <h1>Codificador de Texto</h1>
+    <header>
+        <div class="cabecalho">
+            <h1>Codificador de Texto</h1>
+        </div>
+    </header>
 
-    <div layout:fragment="conteudo" action="/code">
-        <form method="post">
-            <label for="code1"></label>
-            <select name="code" id="code1" th:value="${texto?.codigoTextoAConverter}" >
-                <option value="morse">Morse</option>
-                <option value="alfaNumeric">Alfanumérico</option>
-            </select>
+    <main>
+        <div layout:fragment="conteudo" action="/code">
+            <form method="post">
+                <label for="code1"></label>
+                <select name="code" id="code1" th:value="${texto?.codigoTextoAConverter}" >
+                    <option value="morse">Morse</option>
+                    <option value="alfaNumerico">Alfanumérico</option>
+                </select>
+
+                <input type="submit" value="CODIFIc" disabled>
+
+                <label for="code2"></label>
+                <select name="code2" id="code2" th:value="${texto?.codigoTextoConvertido}" >
+                    <option value="morse">Morse</option>
+                    <option value="alfaNumerico">Alfanumérico</option>
+                </select>
+
+                <label for="texto"></label>
+                <textarea name="textoAConverter" id="texto" wrap="hard" cols="30" rows="5" placeholder="Digite o Texto" th:value="${texto?.textoAConverter}"></textarea>
+
+                <input type="submit" value="CODIFIc" disabled>
+                <input type="submit" id="submit" value="CODIFICAR" >
+
+                <label for="resultado"></label>
+                <textarea name="convertido" id="resultado" wrap="hard" cols="30" rows="5" readonly placeholder="Resultado"
+                          th:text="${texto.textoConvertido}"></textarea>
+
+            </form>
+        </div>
+    </main>
+
+    <footer><div class="rodape"><h2>Volte Sempre!</h2></div> </footer>
 
 
-
-            <label for="code2"></label>
-            <select name="code2" id="code2" th:value="${texto?.codigoTextoConvertido}" >
-                <option value="morse">Morse</option>
-                <option value="alfaNumeric">Alfanumérico</option>
-            </select>
-            <input type="submit" id="submit" value="CODIFICAR" >
-
-            <label for="texto"></label>
-            <textarea name="textoAConverter" id="texto" wrap="hard" cols="30" rows="5" th:value="${texto?.textoAConverter}"></textarea>
-        </form>
-        <label for="resultado"></label>
-        <textarea name="convertido" id="resultado" wrap="hard" cols="30" rows="5" readonly
-                  th:text="${texto.textoConvertido}">
-            arroz vermelho</textarea>
-    </div>
 
 </body>
 </html>

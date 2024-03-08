@@ -1,7 +1,7 @@
 package br.example.code_decode_page.Controller;
 
 import br.example.code_decode_page.DadosCodificaTexto;
-import br.example.code_decode_page.codificador.CodificadorMorse;
+import br.example.code_decode_page.codificador.Codificador;
 import br.example.code_decode_page.domain.Texto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +20,8 @@ public class CodeController {
 
 
         if (texto != null){
-            CodificadorMorse morse = new CodificadorMorse();
-            String textoConvertido = morse.codificar(texto.getTextoAConverter());
-            texto.setTextoConvertido(textoConvertido);
+            Codificador codificador = new Codificador();
+            codificador.codificarTexto(texto);
             model.addAttribute("texto",texto);
         }else{
             this.texto = new Texto();
@@ -35,6 +34,7 @@ public class CodeController {
     @PostMapping
     public String cadastraFilme(DadosCodificaTexto dados) {
        this.texto = new Texto(dados);
+
 
         return "redirect:/code";
     }

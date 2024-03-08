@@ -1,5 +1,8 @@
 package br.example.code_decode_page.domain;
 
+import br.example.code_decode_page.codificador.Morse.Morse;
+import br.example.code_decode_page.codificador.Morse.MorseTranslater;
+
 public enum CodificacaoTexto {
 
     MORSE,
@@ -13,5 +16,20 @@ public enum CodificacaoTexto {
             }
         }
         return null;
+    }
+
+    public String decode(String textoADecodificar) {
+        System.out.println(textoADecodificar + "texto");
+        return switch (this){
+            case MORSE -> Morse.decodificar(textoADecodificar);
+            default -> textoADecodificar;
+        };
+    }
+
+    public String code(String textoAConverterEmAlfanumerico) {
+        return switch (this){
+            case MORSE -> Morse.codificar(textoAConverterEmAlfanumerico);
+            default -> textoAConverterEmAlfanumerico;
+        };
     }
 }
