@@ -22,6 +22,9 @@ public class Texto {
     }
 
     public Texto() {
+        this.setTextoAConverter(" ");
+        this.setCodigoTextoAConverter(CodificacaoTexto.ALFANUMERICO);
+        this.setCodigoTextoConvertido(CodificacaoTexto.ALFANUMERICO);
         this.setTextoConvertido(" ");
 
     }

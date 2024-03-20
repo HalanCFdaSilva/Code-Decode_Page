@@ -44,7 +44,7 @@ public class MorseTranslater {
                 case '8' -> stringBuilder.append("---··");
                 case '9' -> stringBuilder.append("----·");
                 case '0' -> stringBuilder.append("-----");
-                case ' ' -> stringBuilder.append(" ");
+                case ' ' -> stringBuilder.append("/");
                 case '.' -> stringBuilder.append("·-·-·-");
                 case ',' -> stringBuilder.append("--··--");
                 default -> stringBuilder.append("········");

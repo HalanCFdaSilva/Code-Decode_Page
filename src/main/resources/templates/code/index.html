@@ -4,7 +4,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Code/Decode br.example.code_decode_page.domain.Texto</title>
     <link rel = "stylesheet" href= "../static/css/index.css" th:href="@{/css/index.css}">
 </head>
@@ -12,37 +12,45 @@
     <header>
         <div class="cabecalho">
             <h1>Codificador de Texto</h1>
+            <nav>
+                <ul>
+                    <li><a href="nomenclatura.html">NOMENCLATURA</a></li>
+
+                </ul>
+            </nav>
+
         </div>
     </header>
 
     <main>
         <div layout:fragment="conteudo" action="/code">
             <form method="post">
-                <label for="code1"></label>
-                <select name="code" id="code1" th:value="${texto?.codigoTextoAConverter}" >
-                    <option value="morse">Morse</option>
-                    <option value="alfaNumerico">Alfanumérico</option>
-                </select>
+               <div> <label for="code1"></label>
+                   <select name="code" id="code1" th:value="${texto?.codigoTextoAConverter}" >
+                       <option value="morse">Morse</option>
+                       <option value="alfaNumerico">Alfanumérico</option>
+                   </select>
+                   <strong id="para">.-></strong>
+                   <label for="code2"></label>
+                   <select name="code2" id="code2" th:value="${texto?.codigoTextoConvertido}" >
+                       <option value="morse">Morse</option>
+                       <option value="alfaNumerico">Alfanumérico</option>
+                   </select>
+               </div>
 
-                <input type="submit" value="CODIFIc" disabled>
+               <div>
+                   <label for="texto"></label>
+                   <textarea name="textoAConverter" id="texto" wrap="hard" cols="30" rows="5" placeholder="Digite o Texto" th:value="${texto?.textoAConverter}"></textarea>
 
-                <label for="code2"></label>
-                <select name="code2" id="code2" th:value="${texto?.codigoTextoConvertido}" >
-                    <option value="morse">Morse</option>
-                    <option value="alfaNumerico">Alfanumérico</option>
-                </select>
+               </div>
 
-                <label for="texto"></label>
-                <textarea name="textoAConverter" id="texto" wrap="hard" cols="30" rows="5" placeholder="Digite o Texto" th:value="${texto?.textoAConverter}"></textarea>
-
-                <input type="submit" value="CODIFIc" disabled>
                 <input type="submit" id="submit" value="CODIFICAR" >
 
-                <label for="resultado"></label>
-                <textarea name="convertido" id="resultado" wrap="hard" cols="30" rows="5" readonly placeholder="Resultado"
-                          th:text="${texto.textoConvertido}"></textarea>
-
             </form>
+            <label for="resultado"></label>
+            <textarea name="convertido" id="resultado" wrap="hard" cols="30" rows="5" readonly placeholder="Resultado"
+                      th:text="${texto.textoConvertido}"></textarea>
+
         </div>
     </main>
 

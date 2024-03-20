@@ -19,7 +19,6 @@ public enum CodificacaoTexto {
     }
 
     public String decode(String textoADecodificar) {
-        System.out.println(textoADecodificar + "texto");
         return switch (this){
             case MORSE -> Morse.decodificar(textoADecodificar);
             default -> textoADecodificar;
